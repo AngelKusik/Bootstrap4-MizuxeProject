@@ -1,0 +1,103 @@
+
+/**Variables**/
+$primary: #3292a6;
+$primary-overlay: rgba(50,146,166, 0.8);
+
+/**Main**/
+body {
+  margin-top: 105px;
+}
+
+/**Navbar**/
+//with sass we can nest styles, so instead of separatelly adding .navbar .nav-items we can nest it
+.navbar {
+  box-shadow: 2px 2px 5px $primary; //horizontal offset / vertical offset / blur / color
+  opacity: 0.9;
+  background: #fff;
+
+  .nav-item {
+    font-size: 1.4rem; //just a reminder that rem is a multiplier of default font-size (16px).
+    padding-right: 1.4rem;
+  }
+}
+
+/**Showcase Area **/
+#showcase {
+  position: relative;
+  background: url('../img/mountains.jpg');
+  min-height: 600px;
+
+  //here we are repeating what we did on the previous project. To make the child element cover the entire parent
+  //we are setting the parent as relative and the child as absolute positioned and the positions as top & left 0
+  //and width and height 100%.
+  //The only difference is that we get to nest the styles thanks to sass.
+  .primary-overlay {
+    background: $primary-overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/**About Section**/
+.info-header {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 1px #ddd solid;
+}
+
+/**Authors**/
+#authors {
+  img {
+    margin-top: -50px; //That's how we got the image a little outside the card.
+  }
+  .card:hover {
+    background: $primary;
+    color: #fff;
+
+    .fab {
+      color: white
+    }
+  }
+
+
+}
+
+/**Media Queries**/
+//// TODO: MAke the img stack on smaller screens instead of hiding it?
+//When the screen size is less than 768px...
+@media(max-width: 768px) {
+  #showcase {
+    min-height: 500px;
+
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  .mb-resp {
+    margin-bottom: 1rem;
+  }
+
+  #contact-logo {
+    width: 40%;
+    margin-top: 1rem;
+  }
+
+  #boxes .col-md-6 {
+    margin: 0;
+  }
+}
+
+@media(max-width: 992px) {
+  #contact-logo {
+    width: 40%;
+    margin-top: 1rem;
+  }
+
+  #boxes .col-md-6 {
+    margin-bottom: 1rem;
+  }
+}
